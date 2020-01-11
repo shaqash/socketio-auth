@@ -65,5 +65,12 @@ const res = await fetch(`/api/token`, {
   },
 });
 const { token } = await res.json();
-return token;
 ```
+### Connect with token
+```javascript
+// Fetch the token like explained above
+const token = await fetchToken();
+// Connect using the query option token
+const socket = client.connect({ query: { token }});
+```
+Then store the token in memory for reconnects
